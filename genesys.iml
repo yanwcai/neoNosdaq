@@ -10,5 +10,7 @@
     <orderEntry type="library" name="com.microsoft.z3" level="project" />
     <orderEntry type="library" name="gson-2.3.1" level="project" />
     <orderEntry type="library" name="sat4j-genesys" level="project" />
+    <orderEntry type="library" name="KotlinJavaRuntime" level="project" />
+    <orderEntry type="library" name="1.10" level="application" />
   </component>
 </module>

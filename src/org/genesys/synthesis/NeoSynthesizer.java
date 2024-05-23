@@ -56,6 +56,7 @@ public class NeoSynthesizer implements Synthesizer {
         problem_ = problem;
 
         File[] files = new File(specLoc).listFiles();
+        System.out.println("processing specLoc... ");
         for (File file : files) {
             assert file.isFile() : file;
             String json = file.getAbsolutePath();
@@ -108,6 +109,7 @@ public class NeoSynthesizer implements Synthesizer {
             else concrete++;
 
             if (!checker_.check(problem_, ast)) {
+                System.out.println("Checker.check -> unsat");
                 long start = LibUtils.tick();
                 if (learning_) {
                     Z3Utils z3 = Z3Utils.getInstance();
@@ -120,6 +122,7 @@ public class NeoSynthesizer implements Synthesizer {
                 totalDecide += LibUtils.computeTime(start, end);
                 continue;
             }
+            System.out.println("Checker.check -> sat");
 
 
             if (solver_.isPartial()) {

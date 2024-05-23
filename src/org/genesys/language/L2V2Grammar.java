@@ -29,7 +29,9 @@ public class L2V2Grammar implements Grammar<AbstractType> {
         assert !p.getExamples().isEmpty();
         Example example = p.getExamples().get(0);
         List input = example.getInput();
+        System.out.println("Example input size: " + input.size());
         for (int i = 0; i < input.size(); i++) {
+            System.out.println("input: " + input.get(i).toString());
             Object elem = input.get(i);
             InputType in;
             if (elem instanceof List)

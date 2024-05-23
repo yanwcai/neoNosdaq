@@ -213,8 +213,8 @@ public class NeoSolver implements AbstractSolver<BoolExpr, Node> {
     public String nextDecision(List<String> ancestors, List<String> domain) {
 
         assert (domain.size() > 1);
-//        System.out.println("Ancestors = " + ancestors.toString());
-//        System.out.println("Domain = " + domain.toString());
+        System.out.println("Ancestors = " + ancestors.toString());
+        System.out.println("Domain = " + domain.toString());
 
         // Choose your favorite statistical heuristic here!
 
@@ -231,7 +231,7 @@ public class NeoSolver implements AbstractSolver<BoolExpr, Node> {
         }
         //String decision = domain.get(0);
 
-//        System.out.println("Decision = " + decision);
+        System.out.println("Decision = " + decision);
 
         assert (!decision.equals(""));
         return decision;
@@ -259,6 +259,7 @@ public class NeoSolver implements AbstractSolver<BoolExpr, Node> {
     private void initDataStructures() {
         // build the k-tree
         root_ = createNode(domainRootProductions_, true);
+        System.out.println("initDataStructures() root: " + root_);
         root_.id = 0;
 
         // depth starts at 2 since root is at level 1
@@ -289,6 +290,7 @@ public class NeoSolver implements AbstractSolver<BoolExpr, Node> {
 
     private Node createNode(List<Production> productions, boolean children) {
         Node node = new Node("", new ArrayList<>(), productions);
+        System.out.println("In createNode(): create a new node. Has child: " + children);
         if (children) {
             for (int i = 0; i < maxChildren_; i++) {
                 Node child = new Node("", new ArrayList<>(), productions);
@@ -300,16 +302,19 @@ public class NeoSolver implements AbstractSolver<BoolExpr, Node> {
 
     /* Assumes that the root was already created */
     private void createTree(Node node, int depth) {
+        System.out.println("In NeoSolver createTree(): node is " + node.toString());
         assert (!nodes_.contains(node));
         nodes_.add(node);
         node.id = nodeId_++;
 
         assert (node.children.size() == maxChildren_);
+        System.out.println("node is " + node.toString() + " children size is " + node.children.size());
         for (int i = 0; i < node.children.size(); i++) {
             if (depth == maxLen_) {
                 // leaf node
                 node.children.get(i).setDomain(domainLeafProductions_);
                 leafNodes_.add(node);
+                System.out.println("Add to leaf nodes " + node.function + " " + node.toString());
                 assert (((Node) node.children.get(i)).children.isEmpty());
             } else {
                 node.children.get(i).setDomain(domainProductions_);
@@ -325,7 +330,7 @@ public class NeoSolver implements AbstractSolver<BoolExpr, Node> {
         } else {
             for (int i = 0; i < node.children.size(); i++) {
                 node.children.get(i).id = nodeId_++;
-                assert (!nodes_.contains(node.children.get(i)));
+                 assert (!nodes_.contains(node.children.get(i)));
                 nodes_.add(node.children.get(i));
             }
         }
@@ -869,6 +874,7 @@ public class NeoSolver implements AbstractSolver<BoolExpr, Node> {
 
     private <T> void loadGrammar() {
         List<Production<T>> prods = grammar_.getProductions();
+        System.out.println("loadGrammar(): " + prods.toString());
         prods.addAll(grammar_.getInputProductions());
 
         inputProductions_.addAll((List<Production<T>>) grammar_.getInputProductions());

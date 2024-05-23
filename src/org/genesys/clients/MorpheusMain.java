@@ -51,7 +51,7 @@ public class MorpheusMain {
         Problem tableProblem = new Problem();
         List<Example> tgtExamples = new ArrayList<>();
         for(Example org : problem.getExamples()) {
-            Example tgt = new Example();
+            Example tgt = new Example(); // output examples?
             List inputTgt = new ArrayList();
             for(Object o : org.getInput()) {
                 //Get the input
@@ -79,8 +79,11 @@ public class MorpheusMain {
             Extensions.print(outDf);
         }
         tableProblem.setExamples(tgtExamples);
+        System.out.println("Printing examples: " + tableProblem.getExamples() + "\n");
 
         MorpheusGrammar grammar = new MorpheusGrammar(tableProblem);
+        System.out.println("Get Morpheus input productions size: " + grammar.getInputProductions().size());
+
         /* Load component specs. */
         Checker checker = new MorpheusChecker(specLoc, grammar);
         MorpheusInterpreter interpreter = new MorpheusInterpreter();

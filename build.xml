@@ -217,6 +217,34 @@
 	</java>
   </target>
 
+    <target name="neoNosdaq" depends="jar">
+        <java classname="org.genesys.clients.NosdaqMainNeo"
+              maxmemory="4g"
+              fork="true"
+              failonerror="true">
+            <jvmarg value="-ea" />
+            <env key="DYLD_LIBRARY_PATH" value="lib"/>
+            <classpath>
+                <pathelement location="./genesys.jar"/>
+                <pathelement location="lib/com.microsoft.z3.jar"/>
+                <pathelement location="lib/gson-2.3.1.jar"/>
+                <pathelement location="lib/sat4j-genesys.jar"/>
+                <pathelement location="lib/krangl-0.5-SNAPSHOT.jar"/>
+                <pathelement location="lib/kotlin-reflect.jar"/>
+                <pathelement location="lib/kotlin-runtime.jar"/>
+                <pathelement location="lib/commons-csv-1.3.jar"/>
+                <pathelement location="lib/commons-lang3-3.6.jar"/>
+                <pathelement location="lib/mongo-java-driver-3.12.14.jar.jar"/>
+            </classpath>
+            <arg value="${app}"/>
+            <arg value="${depth}"/>
+            <arg value="${learn}"/>
+            <arg value="${stat}"/>
+            <arg value="${file}"/>
+            <arg value="${spec}"/>
+
+        </java>
+    </target>
 
   <target name="clean">
     <delete dir="classes"/>

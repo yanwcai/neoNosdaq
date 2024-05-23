@@ -10,11 +10,13 @@ import org.genesys.models.Problem;
 public class DummyChecker implements Checker<Problem, BoolExpr> {
     @Override
     public boolean check(Problem specification, Node node) {
+        System.out.println("Dummy checker checking ... \n");
         return true;
     }
 
     @Override
     public boolean check(Problem specification, Node node, Node curr) {
+        System.out.println("Dummy checker checking ... \n");
         return true;
     }
 

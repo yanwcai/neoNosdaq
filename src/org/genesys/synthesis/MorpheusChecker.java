@@ -96,7 +96,7 @@ public class MorpheusChecker implements Checker<Problem, List<List<Pair<Integer,
 
             //Get component spec.
             Component comp = components_.get(func);
-//            System.out.println("working on : " + func + " id:" + worker.id + " isconcrete:" + worker.isConcrete());
+            System.out.println("working on : " + func + " id:" + worker.id + " isconcrete:" + worker.isConcrete());
             if ("root".equals(func)) {
                 List<BoolExpr> abs = abstractTable(worker, outDf, inputs);
                 List<BoolExpr> align = alignOutput(worker);

@@ -1,0 +1,33 @@
+{
+  "name": "unwind",
+  "examples": [
+    {
+      "input": [
+        {
+          "content": [
+            1,
+            ["S", "M", "L"]
+          ],
+          "header": [
+            "id",
+            "sizes"
+          ]
+        }
+      ],
+      "output": {
+        "content": [
+          1,
+          "S",
+          1,
+          "M",
+          1,
+          "L"
+        ],
+        "header": [
+          "id",
+          "sizes"
+        ]
+      }
+    }
+  ]
+}

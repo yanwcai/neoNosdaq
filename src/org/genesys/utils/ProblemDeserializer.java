@@ -4,6 +4,7 @@ import com.google.gson.*;
 import com.google.gson.internal.LinkedTreeMap;
 import org.genesys.models.Example;
 import org.genesys.models.Problem;
+import org.genesys.type.MongoCollectionType;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ import java.util.List;
  * Created by yufeng on 9/12/17.
  */
 public class ProblemDeserializer implements JsonDeserializer<Problem> {
+
     @Override
     public Problem deserialize(JsonElement jsonElement, Type type, JsonDeserializationContext jsonDeserializationContext) throws JsonParseException {
         Problem problem = new Problem();
@@ -51,6 +53,47 @@ public class ProblemDeserializer implements JsonDeserializer<Problem> {
         problem.setExamples(examples);
         return problem;
     }
+/*
+    @Override
+    public Problem deserialize(JsonElement jsonElement, Type type, JsonDeserializationContext jsonDeserializationContext) throws JsonParseException {
+        Problem problem = new Problem();
+        List<Example> examples = new ArrayList<>();
+        final JsonObject jsonObject = jsonElement.getAsJsonObject();
+        final JsonElement probName = jsonObject.get("name");
+        problem.setName(probName.getAsString());
+        final JsonElement probExamples = jsonObject.get("examples");
+
+        for (JsonElement expJson : probExamples.getAsJsonArray()) {
+            Example example = new Example();
+            LinkedTreeMap output = new LinkedTreeMap();
+
+            JsonObject out = expJson.getAsJsonObject().get("output").getAsJsonObject();
+//            System.out.println("JsonObject output: " + expJson.getAsJsonObject().get("output"));
+            List outAttribute = parseJson(out.get("attribute"));
+            output.put("attribute", outAttribute);
+            List outValue = parseJson(out.get("value"));
+            output.put("value", outValue);
+            example.setOutput(output);
+
+            List<LinkedTreeMap> inputList = new ArrayList<>();
+            for (JsonElement inputJson : expJson.getAsJsonObject().get("input").getAsJsonArray()) {
+                LinkedTreeMap inputElem = new LinkedTreeMap();
+
+                List inAttribute = parseJson(inputJson.getAsJsonObject().get("attribute"));
+                List inValue = parseJson(inputJson.getAsJsonObject().get("value"));
+                inputElem.put("attribute", inAttribute);
+                inputElem.put("value", inValue);
+                inputList.add(inputElem);
+            }
+            example.setInput(inputList);
+            examples.add(example);
+        }
+
+
+        problem.setExamples(examples);
+        return problem;
+    }
+*/
 
     private List parseJson(JsonElement json) {
         List list = new ArrayList();

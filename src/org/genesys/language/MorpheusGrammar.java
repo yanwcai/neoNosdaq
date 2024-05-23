@@ -48,6 +48,7 @@ public class MorpheusGrammar implements Grammar<AbstractType> {
         // Rules for inputs
         inputType = new TableType();
         Set constSet = new HashSet();
+        System.out.println("Morpheus example size: " + example.getInput().size()); // size = 1 for bmr5
         for (int i = 0; i < example.getInput().size(); i++) {
             DataFrame input = (DataFrame) example.getInput().get(i);
             //initProductions.add(new Production<>(new TableType(), "input" + i));
