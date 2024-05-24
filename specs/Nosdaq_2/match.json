@@ -1,11 +1,19 @@
 {
-  "id": 3,
+  "id": 1,
   "name": "match",
-  "type":"",
+  "high":true,
+  "type":"table",
   "arguments": [
-    ""
+    "Table",
+    "predicate"
   ],
-  "template": "",
+  "template": "match(#table,#unknown)",
   "constraint": [
-  ]
+    "(declare-const IN_SIZE_SPEC Int)(declare-const OUT_SIZE_SPEC Int)(assert (>= IN_SIZE_SPEC OUT_SIZE_SPEC))",
+    "(declare-const IN_SIZE_SPEC Int)(declare-const OUT_SIZE_SPEC Int)(assert (>= IN_SIZE_SPEC OUT_SIZE_SPEC))"
+  ],
+  // root degree, # nodes (in == out)
 }
+
+
+
