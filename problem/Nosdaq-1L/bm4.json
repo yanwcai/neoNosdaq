@@ -1,0 +1,41 @@
+{
+  "name": "bm4",
+  "examples": [
+    {
+      "input": [
+        {
+          "header": ["id", "userId", "type", "orderDate"],
+          "content": [
+            1, 0, "chocolate", "2020-05-18T21:10:30Z",
+            2, 0, "mango", "2021-01-15T22:10:30Z",
+            3, 1, "strawberry", "2021-03-20T18:30:05Z",
+            4, 2, "vanilla", "2021-01-15T14:31:15Z"
+          ]
+        }
+      ],
+      "output":
+      {
+        "header": ["id", "clicks"],
+        "content": [0, 2, 2, 1]
+      }
+    },
+    {
+      "input": [
+        {
+          "header": ["id", "userId", "type", "orderDate"],
+          "content": [
+            1, 0, "chocolate", "2020-05-18T21:10:30Z",
+            2, 0, "mango", "2021-01-15T22:10:30Z",
+            3, 2, "vanilla", "2021-01-15T14:31:15Z",
+            4, 0, "vanilla", "2021-01-15T14:31:15Z"
+          ]
+        }
+      ],
+      "output":
+      {
+        "header": ["id", "clicks"],
+        "content": [0, 3, 2, 1]
+      }
+    }
+  ]
+}

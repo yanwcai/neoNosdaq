@@ -1,0 +1,25 @@
+{
+  "name": "bm2",
+  "examples": [
+    {
+      "input": [
+        {
+          "header": ["_id", "name", "cities.name"],
+          "content": [
+            1, "Spain", ["Madrid", null],
+            2, "France", null,
+            3, "USA", ["Boston"]
+          ]
+        }
+      ],
+      "output":
+      {
+        "header": ["_id", "name", "cities.name"],
+        "content": [
+          1, "Spain", ["Madrid", null],
+          2, "France", null
+        ]
+      }
+    }
+  ]
+}

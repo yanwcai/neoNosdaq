@@ -1,0 +1,42 @@
+{
+  "name": "bm14",
+  "examples": [
+    {
+      "input": [
+        {
+          "header": ["id", "province"],
+          "content": [
+            1, "BC",
+            2, "BC",
+            3, "ON",
+            4, "ON",
+            5, "ON"
+          ]
+        }
+      ],
+      "output":
+      {
+        "header": ["id", "count"],
+        "content": ["ON", 3, "BC", 2]
+      }
+    },
+    {
+      "input": [
+        {
+          "header": ["id", "province"],
+          "content": [
+            1, "BC",
+            2, "BC",
+            3, "BC",
+            4, "BC"
+          ]
+        }
+      ],
+      "output":
+      {
+        "header": ["id", "count"],
+        "content": ["BC", 4]
+      }
+    }
+  ]
+}

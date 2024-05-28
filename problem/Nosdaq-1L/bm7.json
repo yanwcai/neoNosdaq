@@ -1,0 +1,53 @@
+{
+  "name": "bm5",
+  "examples": [
+    {
+      "input": [
+        {
+          "header": ["id", "item", "qty"],
+          "content": [
+            1, "large box", 20,
+            2, "small box", 55,
+            3, "medium box", 30
+          ]
+        }
+      ],
+      "output":
+      {
+        "header": ["item"],
+        "content": ["large box", "small box",  "medium box"]
+      }
+    },
+    {
+      "input": [
+        {
+          "header": ["id", "item", "qty"],
+          "content": [
+            1, "large box", 20,
+            2, "small box", 55
+          ]
+        }
+      ],
+      "output":
+      {
+        "header": ["item"],
+        "content": ["large box", "small box"]
+      }
+    },
+    {
+      "input": [
+        {
+          "header": ["id", "item", "qty"],
+          "content": [
+            1, "extra medium box", 10
+          ]
+        }
+      ],
+      "output":
+      {
+        "header": ["item"],
+        "content": ["extra medium box"]
+      }
+    }
+  ]
+}

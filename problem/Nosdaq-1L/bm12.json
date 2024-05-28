@@ -1,0 +1,52 @@
+{
+  "name": "bm12",
+  "examples": [
+    {
+      "input": [
+        {
+          "header": ["id", "name"],
+          "content": [1, "Brian", 2, "Brian", 3, "Ben", 4, "Liam"]
+        }
+      ],
+      "output":
+      {
+        "header": ["name", "count"],
+        "content": ["Brian", 2]
+      }
+    },
+    {
+      "input": [
+        {
+          "header": [
+            "id",
+            "name"
+          ],
+          "content": [
+            1,
+            "Brian",
+            2,
+            "Brian",
+            3,
+            "Ben",
+            4,
+            "Liam",
+            5,
+            "Liam"
+          ]
+        }
+      ],
+      "output": {
+        "header": [
+          "name",
+          "count"
+        ],
+        "content": [
+          "Brian",
+          2,
+          "Liam",
+          2
+        ]
+      }
+    }
+  ]
+}

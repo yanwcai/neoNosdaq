@@ -1,0 +1,44 @@
+{
+  "name": "bm18",
+  "examples": [
+    {
+      "input": [
+        {
+          "header": ["id", "first_name", "last_name", "phone"],
+          "content": [
+            1, "john", "hersh", "2222",
+            2, "john", "hersh", "12345678",
+            3, "elton", "john", "12345678",
+            4, "eltonush", "john", "5555"
+          ]
+        }
+      ],
+      "output":
+      {
+        "header": ["id", "first_name", "last_name", "phone"],
+        "content": [
+          2, "john", "hersh", "12345678",
+          3, "elton", "john", "12345678"
+        ]
+      }
+    },
+    {
+      "input": [
+        {
+          "header": ["id", "first_name", "last_name", "phone"],
+          "content": [
+            1, "johnathon", "hersh", "12345678",
+            2, "elton", "john", "12345678"
+          ]
+        }
+      ],
+      "output":
+      {
+        "header": ["id", "first_name", "last_name", "phone"],
+        "content": [
+          2, "elton", "john", "12345678"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "name": "bm10",
+  "examples": [
+    {
+      "input": [
+        {
+          "header": ["id", "a", "b"],
+          "content": [
+            1, 10, 1,
+            2, 5, 5,
+            3, 1, 9
+          ]
+        }
+      ],
+      "output":
+      {
+        "header": ["id", "c"],
+        "content": [
+          1, 9,
+          2, 0,
+          3, -8]
+      }
+    },
+    {
+      "input": [
+        {
+          "header": [
+            "id",
+            "a",
+            "b"
+          ],
+          "content": [
+            1,
+            1,
+            10,
+            2,
+            5,
+            5
+          ]
+        }
+      ],
+      "output": {
+        "header": [
+          "id",
+          "c"
+        ],
+        "content": [
+          1,
+          0,
+          2,
+          -9
+        ]
+      }
+    },
+    {
+      "input": [
+        {
+          "header": ["id", "a", "b"],
+          "content": [
+            1, 20, 10,
+            2, 1, 1
+          ]
+        }
+      ],
+      "output":
+      {
+        "header": ["id", "c"],
+        "content": [
+          1, 10,
+          2, 0]
+      }
+    }
+  ]
+}

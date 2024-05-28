@@ -1,0 +1,22 @@
+{
+  "name": "bm1",
+  "examples": [
+    {
+      "input": [
+        {
+          "header": ["_id", "name", "type"],
+          "content": [
+            1, "apple", ["Granny smith","Fuji"],
+            2, "grape", ["green", "black"],
+            3, "orange", ["navel"]
+          ]
+        }
+      ],
+      "output":
+      {
+        "header": ["name"],
+        "content": ["apple", "grape"]
+      }
+    }
+  ]
+}
